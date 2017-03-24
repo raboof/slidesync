@@ -50,7 +50,7 @@ function post(slidenr) {
       return known_points[i];
     }
   }
-  return [numberOfSlides, length];
+  return [numberOfSlides, duration];
 }
 
 function seekToSlide(slidenr) {
