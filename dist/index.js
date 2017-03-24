@@ -1,28 +1,35 @@
 const vimeo = document.querySelector('#vimeo');
 
-let length = 0
-let numberOfSslides;
+let duration = 0
+let numberOfSlides;
 
 const known_points = [
   [0, 49],
-  [1, (1 * 60) + 39],
-  [4, (2 * 60) + 8],
-  [29, (27 * 60) + 35],
-  [63, (49 * 60) + 50]
-]
+  [1, 113],
+  [2, 120],
+  [3, 197],
+  [4, 555],
+  [5, 700],
+  [6, 928],
+  [7, 1035]
+];
 
 var player = new Vimeo.Player(vimeo);
-player.getDuration().then(function(duration) {
-  console.log('got duration', duration)
-  length = duration
-  Array.from(document.querySelectorAll('.slide-container img')).forEach((el, index) => {
-     el.addEventListener('click', function(evt) {
-      console.log('Clicked', index);
-      seekToSlide(index);
-      numberOfSslides = index;
-    });
-  })
-})
+player.getDuration()
+  .then(function(_duration) {
+    console.log('got duration', _duration)
+    duration = _duration;
+
+    Array.from(document.querySelectorAll('.slide-container img')).forEach((el, index) => {
+      el.addEventListener('click', () => {
+        console.log('Clicked', index);
+        seekToSlide(index);
+      });
+      numberOfSlides = index;
+    })
+  }
+);
+
 player.play()
 
 function pre(slidenr) {
@@ -42,7 +49,7 @@ function post(slidenr) {
       return known_points[i];
     }
   }
-  return [numberOfSslides, length];
+  return [numberOfSlides, length];
 }
 
 function seekToSlide(slidenr) {

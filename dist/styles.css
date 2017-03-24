@@ -4,21 +4,23 @@
 iframe{
   border: none;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 html, body {
   padding:0;
   margin:0;
-}
-body {
-  display: flex;
+  background: black;
 }
 .video-container{
-  flex: 1;
+  width: 60%;
+  height: 100vh;
+  position: fixed;
   padding: .5rem;
 }
 .slide-container{
-  flex: 1;
+  width: 100%;
+  padding-left: 60%;
+  background: #222;
 }
 .video-container {
   background: black;
@@ -48,17 +50,32 @@ video {
   max-width: 100%;
 }
 
+@media screen and (max-width: 1020px) {
+  .slide-container > ul {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .slide-container > ul {
+    grid-template-columns: 50% 50%;
+  }
+}
+
 @media screen and (max-width: 672px) {
-  body {
-    display: block;
+  .slide-container > ul {
+    grid-template-columns: 25% 25% 25% 25%;
   }
   .video-container, .slide-container {
     width: 100%;
   }
   .video-container{
-    position: fixed;
+    height: 50vh;
+    width: 100%;
   }
   .slide-container{
-    padding-top: 380px;
+    width: 100%;
+    padding-top: 50vh;
+    padding-left: 0;
   }
 }
