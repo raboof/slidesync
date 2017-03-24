@@ -1,15 +1,25 @@
-const video = document.querySelector('video');
+const vimeo = document.querySelector('#vimeo');
 
-['loadstart','progress','suspend','abort','error','emptied','stalled','loadedmetadata','loadeddata','canplay','canplaythrough','playing','waiting','seeking','seeked','ended','durationchange','play','pause','ratechange','resize','volumechange']
-.forEach(ev => {
-  video.addEventListener(ev, (e) => {
-    console.log(e.type, e);
-  }, false)
-});
+var length = 0
+const n_slides = 57
 
-video.addEventListener('timeupdate', e => {
-  console.log(e.target.currentTime);
-});
+var player = new Vimeo.Player(vimeo);
+player.getDuration().then(function(duration) {
+  console.log('got duration', duration)
+  length = duration
+  const images = document.querySelectorAll('.slide-container img')
+  for (var i = 0; i < images.length; i++) {
+    const j = i;
+    images[i].addEventListener('click', function(evt) {
+      console.log('Clicked', j)
+      seekToSlide(j);
+    })
+  }
+})
+player.play()
 
-
-console.log(video)
+function seekToSlide(n) {
+  var target = length * n / n_slides
+  console.log('seeking to', target)
+  player.setCurrentTime(target)
+}
