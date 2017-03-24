@@ -25,11 +25,6 @@ player.getDuration().then(function(duration) {
 })
 player.play()
 
-<<<<<<< HEAD
-function seekToSlide(n) {
-  var target = length * n / numberOfSslides;
-  console.log('seeking to', target);
-=======
 function pre(slidenr) {
   var current = [0, 0];
   for (var i = 0; i < known_points.length; i++) {
@@ -47,7 +42,7 @@ function post(slidenr) {
       return known_points[i];
     }
   }
-  return [n_slides, length];
+  return [numberOfSslides, length];
 }
 
 function seekToSlide(slidenr) {
@@ -59,6 +54,5 @@ function seekToSlide(slidenr) {
 
   var target = prePos[1] + (idxRange ? timeRange * idxInRange / idxRange : 0)
   console.log('seeking to', target)
->>>>>>> 597df9392efdb4997f663324924e7cc917fc0d84
   player.setCurrentTime(target)
 }
