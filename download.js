@@ -12,7 +12,7 @@ function renderPages(page, pagenr) {
     page.evaluateJavaScript('Reveal.next()');
     setTimeout(function() { 
       renderPages(page, pagenr + 1);
-    }, 300);
+    }, 400);
   }
 }
 
@@ -21,5 +21,5 @@ page.open('http://slides.com/sdrasner/generateny/embed?postMessageEvents=true', 
   page.evaluateJavaScript('Reveal.configure({fragments: false})');
   setTimeout(function() { 
     renderPages(page, 1);
-  }, 300);
+  }, 1500);
 })
