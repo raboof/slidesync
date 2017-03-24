@@ -11,6 +11,9 @@ html, body {
   margin:0;
   background: black;
 }
+body{
+  min-width: 320px;
+}
 .video-container{
   width: 60%;
   height: 100vh;
@@ -41,18 +44,33 @@ video {
   padding: 0;
 }
 .slide-container > ul > li {
-  border: 1px solid black;
+  border: 1px solid #515151;
+  border-radius: 2px;
+  background: #343434;
   padding: .25rem;
   margin: .5rem;
   min-height: 3rem;
 }
 .slide-container > ul > li > img{
   max-width: 100%;
+  vertical-align: bottom;
+}
+
+@media screen and (max-width: 1200px) {
+  .slide-container > ul {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
 }
 
 @media screen and (max-width: 1020px) {
   .slide-container > ul {
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .slide-container > ul {
+    grid-template-columns: 33.3% 33.3% 33.3%;
   }
 }
 

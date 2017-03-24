@@ -11,7 +11,8 @@ const known_points = [
   [4, 555],
   [5, 700],
   [6, 928],
-  [7, 1035]
+  [7, 1035],
+  [8, 977]
 ];
 
 var player = new Vimeo.Player(vimeo);
