@@ -39,10 +39,18 @@ video {
   margin: .5rem;
   min-height: 3rem;
 }
-.slide-container > ul > li >img{
+.slide-container > ul > li > img{
   max-width: 100%;
 }
-
+.single.slide-container > ul{
+  grid-template-columns: none;
+  display: flex;
+  flex-direction: column;
+}
+.single.slide-container > ul > li{
+  max-height: 30px;
+  overflow: hidden;
+}
 @media screen and (max-width: 672px) {
   body {
     display: block;
